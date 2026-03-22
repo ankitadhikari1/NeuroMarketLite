@@ -150,7 +150,8 @@ const TradingSimulator = () => {
               ))}
             </div>
           </div>
-
+                  // this is done 
+                  
           <div
             className={`p-5 rounded-2xl border border-slate-800 transition-all duration-500 ${emotionInsights[mode].bg}`}
           >

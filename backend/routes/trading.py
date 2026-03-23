@@ -190,6 +190,7 @@ def add_to_watchlist(
     current_user: database.User = Depends(auth.get_current_user),
     db: Session = Depends(auth.get_db)
 ):
+    
     symbol = payload.get("symbol", "").upper()
     if not symbol:
         raise HTTPException(status_code=400, detail="Symbol is required")

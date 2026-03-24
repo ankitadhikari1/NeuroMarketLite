@@ -2,6 +2,10 @@ from typing import List, Dict, Any
 import random
 
 def run_trading_simulation(emotion_mode: str) -> Dict[str, Any]:
+    """
+    Simulates a mock trading session based on an emotional state.
+    Returns profit/loss and basic stats.
+    """
     emotion_mode = emotion_mode.lower()
     
     # Simulation parameters based on emotion

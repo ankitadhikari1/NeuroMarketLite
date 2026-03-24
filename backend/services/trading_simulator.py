@@ -4,6 +4,11 @@ import random
 def run_trading_simulation(emotion_mode: str) -> Dict[str, Any]:
     emotion_mode = emotion_mode.lower()
     
+    # Simulation parameters based on emotion
+    # Calm traders are more consistent, take smaller but higher probability wins.
+    # Excited traders are prone to FOMO, take larger sizes but lower probability wins.
+    # Stressed traders are prone to panic, take impulsive losses and smaller wins.
+    
     config = {
         "calm": {
             "win_rate": 0.65,
@@ -36,6 +41,7 @@ def run_trading_simulation(emotion_mode: str) -> Dict[str, Any]:
     for i in range(params["num_trades"]):
         is_win = random.random() < params["win_rate"]
         
+        # Add some variance to wins and losses
         if is_win:
             pnl = params["avg_win"] * random.uniform(0.8, 1.2)
         else:

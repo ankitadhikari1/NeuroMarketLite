@@ -5,10 +5,6 @@ from typing import Dict, Any, Tuple
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 class FacialEmotionService:
-    """
-    Service for facial emotion detection using DeepFace.
-    """
-
     _warmed_up = False
     _reloaded = False
 
@@ -98,6 +94,7 @@ class FacialEmotionService:
                 frame = cv2.resize(frame, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
 
             # Analyze with DeepFace
+            # Very important step
             # enforce_detection=False to avoid errors if no face is found
             def run():
                 return DeepFace.analyze(
